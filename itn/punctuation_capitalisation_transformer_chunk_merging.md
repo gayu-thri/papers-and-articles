@@ -41,7 +41,7 @@
             * chunk size of k words 
             * **<span style="text-decoration:underline;">a sliding window of k/2 words so that 2 consecutive chunks are overlapped.</span>** 
               
-![alt_text](images/image1.png "image_tooltip")
+![alt_text](../../images/chunk_merging.png "image_tooltip")
 
 * The output of the model are merged – only keep predictions of the model with enough context information 
 * Challenging part 
@@ -58,8 +58,10 @@
             * while the overlapped words in the second chunk are removed 
             * The same principle when **_min_words_cut_** equals to the **_overlapped size_**. 
  
-![alt_text](images/image2.png "image_tooltip")
+![alt_text](../../images/min_words_cut.png "image_tooltip")
 
+]
+ 
 * Dataset Preparation 
     * Only alphabet characters and three punctuations (, . ?) are kept 
     * Punctuation belongs to previous word. Ex: laptop, mobile 
@@ -68,7 +70,7 @@
     * British National Corpus (BNC ) - 100 million words 
         * Covers British English from late 20<sup>th</sup> century 
           
-![alt_text](images/image3.png "image_tooltip")
+![alt_text](../../images/bnc_corpus.png "image_tooltip")
 
 * Evaluation 
     * Precision, Recall, F1 scores 
@@ -76,11 +78,11 @@
         * U, L, ., ,,?, $ 
     * Prediction of lowercase and blank space are good in all model – hence ignored in table 
       
-![alt_text](images/image4.png "image_tooltip")
+![alt_text](../../images/chunk_merging_plain_text_scores.png "image_tooltip")
 
 * The matrix shows comma is the most difficult class to predict 
     * Comma is often mis-predicted as blank character 
 * Model with plain text outperforms ones with encoded text (U,.,?, etc)  
     * However,** model with encoded text – small model size & faster for inference** 
           
-![alt_text](images/image5.png "image_tooltip")
+![alt_text](../../images/chunk_merging_encoded_text_scores.png "image_tooltip")
